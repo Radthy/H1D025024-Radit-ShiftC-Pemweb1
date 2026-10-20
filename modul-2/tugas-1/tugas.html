@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas - Form</title>
+</head>
+<body>
+    <form method="post" action="">
+        <!-- Input 1: value tetap, bisa diklik tapi tidak bisa diganti -->
+        <label for="input1">Input 1:</label><br>
+        <input type="text" id="input1" name="input1" value="Nilai Tetap" readonly><br>
+
+        <!-- Input 2: maksimal 5 karakter -->
+        <label for="input2">Input 2:</label><br>
+        <input type="text" id="input2" name="input2" maxlength="5"><br>
+
+        <!-- Input 3: tidak bisa diklik maupun diisi -->
+        <label for="input3">Input 3:</label><br>
+        <input type="text" id="input3" name="input3" disabled><br>
+
+        <!-- Input 4: wajib diisi -->
+        <label for="input4">Input 4:</label><br>
+        <input type="text" id="input4" name="input4" required><br>
+
+        <!-- Input 5: NIM, 9 karakter, hanya huruf kecil dan angka -->
+        <label for="input5">Input 5 (NIM):</label><br>
+        <input type="text" id="input5" name="input5"
+               maxlength="9" minlength="9"
+               pattern="[a-z0-9]{9}"
+               title="9 karakter, hanya huruf kecil dan angka"
+               required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

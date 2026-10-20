@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Validasi Form</title>
+</head>
+<body>
+    <form method="POST" name="frmlatihan" onSubmit="return cek()">
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td>:</td>
+                <td><input id="nama" type="text" name="nama" size="40"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td><input id="email" type="text" name="email" size="40"></td>
+            </tr>
+            <tr>
+                <td>Komentar</td>
+                <td>:</td>
+                <td><textarea id="komentar" name="komentar" cols="60" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="submit" name="simpan" value="Simpan"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function cek() {
+            const nama = document.getElementById("nama");
+            const email = document.getElementById("email");
+            const komentar = document.getElementById("komentar");
+
+            // 1. Tidak boleh ada field yang kosong
+            if (nama.value.trim() == "") {
+                alert("Nama harus diisi!");
+                nama.focus();
+                return false;
+            }
+            if (email.value.trim() == "") {
+                alert("Email harus diisi!");
+                email.focus();
+                return false;
+            }
+            if (komentar.value.trim() == "") {
+                alert("Komentar harus diisi!");
+                komentar.focus();
+                return false;
+            }
+
+            // 2. Nama tidak boleh mengandung angka atau simbol (hanya huruf dan spasi)
+            const polaNama = /^[A-Za-z\s]+$/;
+            if (!polaNama.test(nama.value)) {
+                alert("Nama tidak boleh mengandung angka atau simbol!");
+                nama.focus();
+                return false;
+            }
+
+            alert("Pengisian form sukses!");
+            return true;
+        }
+    </script>
+</body>
+</html>
